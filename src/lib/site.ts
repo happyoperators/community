@@ -7,7 +7,7 @@ export const site = {
     "An open, community-curated directory of projects and builders. Ranked by GitHub signals. No gatekeepers — anyone can contribute via a pull request.",
   url: "https://ho-community.netlify.app",
   // Repo that hosts the data files — used by the "Submit" / "Edit" links.
-  repo: "https://github.com/your-org/ho-community",
+  repo: "https://github.com/happy-operators/community",
 } as const;
 
 export const navLinks = [
