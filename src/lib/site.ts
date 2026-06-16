@@ -2,9 +2,9 @@
 
 export const site = {
   name: "HO Community",
-  tagline: "A community directory of the best open-source projects and the builders behind them.",
+  tagline: "Built by the community, for the community.",
   description:
-    "An open, community-curated directory of projects and builders. Ranked by GitHub signals. No gatekeepers — anyone can contribute via a pull request.",
+    "A community-curated directory of the projects, apps, and people building with AI. Not just open source — anyone can add an entry with a pull request.",
   url: "https://ho-community.netlify.app",
   // Repo that hosts the data files — used by the "Submit" / "Edit" links.
   repo: "https://github.com/happyoperators/community",
