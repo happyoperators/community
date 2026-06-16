@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-16T19:36:09.010Z",
+  "generatedAt": "2026-06-16T19:37:36.518Z",
   "repos": {
     "simonconway1979/claude-code-jobs": {
       "stars": 0,
@@ -7,6 +7,13 @@
       "pushedAt": "2026-06-14T23:58:24Z",
       "language": "Shell",
       "openIssues": 1
+    },
+    "simonconway1979/os-intelligence": {
+      "stars": 3,
+      "forks": 0,
+      "pushedAt": "2026-06-10T10:50:05Z",
+      "language": "Shell",
+      "openIssues": 0
     }
   },
   "users": {
