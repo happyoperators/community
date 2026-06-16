@@ -11,6 +11,7 @@ import path from "node:path";
 const ROOT = process.cwd();
 const PROJECTS_DIR = path.join(ROOT, "data", "projects");
 const BUILDERS_DIR = path.join(ROOT, "data", "builders");
+const APPS_DIR = path.join(ROOT, "data", "apps");
 const OUT_DIR = path.join(ROOT, "data", "generated");
 const OUT_FILE = path.join(OUT_DIR, "stats.json");
 
@@ -64,9 +65,12 @@ async function fetchUser(username) {
 async function main() {
   const projects = readJsonDir(PROJECTS_DIR);
   const builders = readJsonDir(BUILDERS_DIR);
+  const apps = readJsonDir(APPS_DIR);
 
   const repoNames = [
-    ...new Set(projects.map((p) => p.repo).filter(Boolean)),
+    ...new Set(
+      [...projects, ...apps].map((x) => x.repo).filter(Boolean),
+    ),
   ];
   const userNames = [
     ...new Set(builders.map((b) => b.github).filter(Boolean)),

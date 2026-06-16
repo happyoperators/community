@@ -6,7 +6,8 @@ import { buttonVariants } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Submit",
-  description: "Add a project or builder to the directory with a pull request.",
+  description:
+    "Add a project, app, or builder to the directory with a pull request.",
 };
 
 const projectExample = `{
@@ -18,6 +19,18 @@ const projectExample = `{
   "tags": ["typescript", "cli"],
   "builders": ["your-builder-slug"],
   "featured": false
+}`;
+
+const appExample = `{
+  "name": "Your App",
+  "description": "One clear sentence about what it does.",
+  "url": "https://yourapp.com",
+  "platforms": ["web", "ios"],
+  "category": "Productivity",
+  "tags": ["ai", "notes"],
+  "builders": ["your-builder-slug"],
+  "price": "Freemium",
+  "repo": "owner/repository"
 }`;
 
 const builderExample = `{
@@ -54,20 +67,30 @@ export default function SubmitPage() {
 
         <Step n={2} icon={<FileJson className="size-4" />} title="Add a JSON file">
           <p className="mb-3">
-            Drop one file into <code className="rounded bg-muted px-1.5 py-0.5 text-sm">data/projects/</code> or{" "}
-            <code className="rounded bg-muted px-1.5 py-0.5 text-sm">data/builders/</code>. The file
-            name becomes the URL slug (e.g. <code className="rounded bg-muted px-1.5 py-0.5 text-sm">my-project.json</code> →{" "}
-            <code className="rounded bg-muted px-1.5 py-0.5 text-sm">/projects/my-project</code>).
+            Drop one file into{" "}
+            <code className="rounded bg-muted px-1.5 py-0.5 text-sm">data/projects/</code>,{" "}
+            <code className="rounded bg-muted px-1.5 py-0.5 text-sm">data/apps/</code>, or{" "}
+            <code className="rounded bg-muted px-1.5 py-0.5 text-sm">data/builders/</code>. The
+            file name becomes the URL slug (e.g.{" "}
+            <code className="rounded bg-muted px-1.5 py-0.5 text-sm">my-thing.json</code> →{" "}
+            <code className="rounded bg-muted px-1.5 py-0.5 text-sm">/projects/my-thing</code>).
+          </p>
+          <p className="mb-3 text-muted-foreground">
+            A <strong>project</strong> is open source and ranked by GitHub stars. An{" "}
+            <strong>app</strong> is anything you ship — web, mobile, desktop — and
+            doesn&apos;t have to be open source (just needs a link and platforms).
           </p>
           <CodeBlock label="data/projects/your-project.json" code={projectExample} />
+          <div className="h-3" />
+          <CodeBlock label="data/apps/your-app.json" code={appExample} />
           <div className="h-3" />
           <CodeBlock label="data/builders/your-name.json" code={builderExample} />
         </Step>
 
         <Step n={3} icon={<Star className="size-4" />} title="Open the pull request">
-          Open the PR. Stars, forks, and activity are fetched automatically from
-          GitHub at build time — you don't add those. Once merged, your entry is
-          live and ranked.
+          Open the PR. For anything with a <code className="rounded bg-muted px-1.5 py-0.5 text-sm">repo</code>,
+          stars and activity are fetched automatically from GitHub at build time —
+          you don&apos;t add those. Once merged, your entry is live.
         </Step>
       </ol>
 

@@ -1,6 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import type {
+  App,
+  AppInput,
   Builder,
   BuilderInput,
   Project,
@@ -8,6 +10,7 @@ import type {
   RepoStats,
   UserStats,
 } from "./types";
+import { type Platform, PLATFORM_KEYS } from "./platforms";
 import { scoreBuilder, scoreProject } from "./ranking";
 
 // Build-time data loading. Everything here runs during `next build` (static
@@ -16,6 +19,7 @@ import { scoreBuilder, scoreProject } from "./ranking";
 const DATA_DIR = path.join(process.cwd(), "data");
 const PROJECTS_DIR = path.join(DATA_DIR, "projects");
 const BUILDERS_DIR = path.join(DATA_DIR, "builders");
+const APPS_DIR = path.join(DATA_DIR, "apps");
 const STATS_FILE = path.join(DATA_DIR, "generated", "stats.json");
 
 interface StatsFile {
@@ -44,7 +48,8 @@ function readJsonDir<T>(dir: string): { slug: string; data: T }[] {
     }));
 }
 
-let cache: { projects: Project[]; builders: Builder[] } | null = null;
+let cache: { projects: Project[]; builders: Builder[]; apps: App[] } | null =
+  null;
 
 function load() {
   if (cache) return cache;
@@ -52,6 +57,7 @@ function load() {
   const stats = readStats();
   const rawProjects = readJsonDir<ProjectInput>(PROJECTS_DIR);
   const rawBuilders = readJsonDir<BuilderInput>(BUILDERS_DIR);
+  const rawApps = readJsonDir<AppInput>(APPS_DIR);
 
   const projects: Project[] = rawProjects.map(({ slug, data }) => {
     const repoStats = data.repo ? (stats.repos[data.repo] ?? null) : null;
@@ -63,7 +69,12 @@ function load() {
     };
   });
 
-  // Build slug -> total project stars, and project refs for each builder.
+  const apps: App[] = rawApps.map(({ slug, data }) => {
+    const repoStats = data.repo ? (stats.repos[data.repo] ?? null) : null;
+    return { ...data, slug, stats: repoStats };
+  });
+
+  // Build project + app refs for each builder.
   const builderProjects = new Map<string, string[]>();
   for (const p of projects) {
     for (const b of p.builders ?? []) {
@@ -72,12 +83,21 @@ function load() {
       builderProjects.set(b, list);
     }
   }
+  const builderApps = new Map<string, string[]>();
+  for (const a of apps) {
+    for (const b of a.builders ?? []) {
+      const list = builderApps.get(b) ?? [];
+      list.push(a.slug);
+      builderApps.set(b, list);
+    }
+  }
 
   const builders: Builder[] = rawBuilders.map(({ slug, data }) => {
     const userStats = data.github
       ? (stats.users[data.github.toLowerCase()] ?? null)
       : null;
     const projectSlugs = builderProjects.get(slug) ?? [];
+    const appSlugs = builderApps.get(slug) ?? [];
     const totalStars = projectSlugs.reduce((sum, ps) => {
       const proj = projects.find((p) => p.slug === ps);
       return sum + (proj?.stats?.stars ?? 0);
@@ -87,14 +107,23 @@ function load() {
       slug,
       userStats,
       projects: projectSlugs,
+      apps: appSlugs,
       score: scoreBuilder(totalStars, userStats),
     };
   });
 
   projects.sort((a, b) => b.score - a.score);
   builders.sort((a, b) => b.score - a.score);
+  // Apps aren't star-ranked: featured first, then any stars, then name.
+  apps.sort((a, b) => {
+    if (!!b.featured !== !!a.featured) return a.featured ? -1 : 1;
+    const sa = a.stats?.stars ?? 0;
+    const sb = b.stats?.stars ?? 0;
+    if (sb !== sa) return sb - sa;
+    return a.name.localeCompare(b.name);
+  });
 
-  cache = { projects, builders };
+  cache = { projects, builders, apps };
   return cache;
 }
 
@@ -114,10 +143,25 @@ export function getBuilder(slug: string): Builder | undefined {
   return load().builders.find((b) => b.slug === slug);
 }
 
+export function getApps(): App[] {
+  return load().apps;
+}
+
+export function getApp(slug: string): App | undefined {
+  return load().apps.find((a) => a.slug === slug);
+}
+
 export function getCategories(): string[] {
   const set = new Set<string>();
   for (const p of getProjects()) if (p.category) set.add(p.category);
   return [...set].sort();
+}
+
+/** Distinct platforms present across all apps, in canonical order. */
+export function getAppPlatforms(): Platform[] {
+  const present = new Set<Platform>();
+  for (const a of getApps()) for (const p of a.platforms) present.add(p);
+  return PLATFORM_KEYS.filter((p) => present.has(p));
 }
 
 export function getStatsGeneratedAt(): string {

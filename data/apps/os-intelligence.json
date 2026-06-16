@@ -1,0 +1,12 @@
+{
+  "name": "OS Intelligence",
+  "description": "The intelligence layer for your Claude Code OS. Capture, synthesise, and compound your context.",
+  "url": "https://os-intelligence.ai/",
+  "platforms": ["web", "cli"],
+  "category": "Developer Tools",
+  "tags": ["claude-code", "ai-tools", "knowledge-management"],
+  "builders": ["simon-conway"],
+  "repo": "simonconway1979/os-intelligence",
+  "price": "Free",
+  "featured": true
+}

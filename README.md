@@ -4,7 +4,8 @@ An open, **community-curated directory of projects and the builders behind them*
 Everything is public, there's no backend, and anyone can add an entry by opening a
 pull request with a small JSON file. Projects are ranked by GitHub signals.
 
-- **Projects** — `/projects` — ranked by stars + recent activity
+- **Projects** — `/projects` — open source, ranked by stars + recent activity
+- **Apps** — `/apps` — things builders ship (web/mobile/desktop), open source or not
 - **Builders** — `/builders` — the people shipping them
 
 ## How it works
@@ -13,12 +14,17 @@ There is no database. Each entry is a single JSON file in the repo:
 
 ```
 data/
-  projects/<slug>.json     # one project per file
+  projects/<slug>.json     # one open-source project per file
+  apps/<slug>.json         # one showcased app per file (needs a link + platforms)
   builders/<slug>.json     # one builder per file
   generated/stats.json     # GitHub stats, fetched at build time (do not edit by hand)
 ```
 
 The file name is the URL slug — `data/projects/ollama.json` → `/projects/ollama`.
+
+A **project** must be open source and is ranked by GitHub stars. An **app** is any
+shipped product — it just needs a `url` and `platforms`, and may optionally link a
+`repo` if it happens to be open source.
 
 At build time, [`scripts/fetch-stars.mjs`](scripts/fetch-stars.mjs) reads every
 project repo and builder GitHub handle, fetches current stars / forks / activity

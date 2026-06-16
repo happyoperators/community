@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Globe, MapPin, Pencil } from "lucide-react";
-import { getBuilder, getBuilders, getProject } from "@/lib/data";
+import { getBuilder, getBuilders, getProject, getApp } from "@/lib/data";
 import { builderAvatar } from "@/lib/avatar";
 import { GithubIcon } from "@/components/icons";
 import { site } from "@/lib/site";
@@ -12,6 +12,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ProjectCard } from "@/components/project-card";
+import { AppCard } from "@/components/app-card";
 
 export function generateStaticParams() {
   return getBuilders().map((b) => ({ slug: b.slug }));
@@ -42,8 +43,11 @@ export default async function BuilderPage({
 
   const avatar = builderAvatar(builder);
   const projects = builder.projects
-    .map((slug) => getProject(slug))
+    .map((s) => getProject(s))
     .filter((p) => p !== undefined);
+  const apps = builder.apps
+    .map((s) => getApp(s))
+    .filter((a) => a !== undefined);
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
@@ -135,6 +139,20 @@ export default async function BuilderPage({
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {projects.map((p) => (
               <ProjectCard key={p.slug} project={p} />
+            ))}
+          </div>
+        </>
+      ) : null}
+
+      {apps.length > 0 ? (
+        <>
+          <Separator className="my-8" />
+          <h2 className="mb-4 text-sm font-medium text-muted-foreground">
+            Apps ({apps.length})
+          </h2>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {apps.map((a) => (
+              <AppCard key={a.slug} app={a} />
             ))}
           </div>
         </>

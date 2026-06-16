@@ -1,15 +1,18 @@
 import Link from "next/link";
-import { ArrowRight, GitPullRequest, Star, Users } from "lucide-react";
-import { getProjects, getBuilders } from "@/lib/data";
+import { AppWindow, ArrowRight, GitPullRequest, Star, Users } from "lucide-react";
+import { getProjects, getBuilders, getApps } from "@/lib/data";
 import { site } from "@/lib/site";
 import { ProjectCard } from "@/components/project-card";
 import { BuilderCard } from "@/components/builder-card";
+import { AppCard } from "@/components/app-card";
 import { buttonVariants } from "@/components/ui/button";
 
 export default function Home() {
   const projects = getProjects();
   const builders = getBuilders();
+  const apps = getApps();
   const topProjects = projects.slice(0, 6);
+  const topApps = apps.slice(0, 4);
   const topBuilders = builders.slice(0, 4);
 
   return (
@@ -52,6 +55,12 @@ export default function Home() {
               <Star className="size-4" /> {projects.length}{" "}
               {projects.length === 1 ? "project" : "projects"}
             </span>
+            {apps.length > 0 ? (
+              <span className="inline-flex items-center gap-2">
+                <AppWindow className="size-4" /> {apps.length}{" "}
+                {apps.length === 1 ? "app" : "apps"}
+              </span>
+            ) : null}
             <span className="inline-flex items-center gap-2">
               <Users className="size-4" /> {builders.length}{" "}
               {builders.length === 1 ? "builder" : "builders"}
@@ -78,8 +87,25 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Apps */}
+      {topApps.length > 0 ? (
+        <section className="mx-auto max-w-5xl px-4 pb-2 sm:px-6">
+          <SectionHeader
+            title="Apps"
+            subtitle="Things the community ships — open source or not."
+            href="/apps"
+            cta="All apps"
+          />
+          <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {topApps.map((a) => (
+              <AppCard key={a.slug} app={a} />
+            ))}
+          </div>
+        </section>
+      ) : null}
+
       {/* Top builders */}
-      <section className="mx-auto max-w-5xl px-4 pb-20 sm:px-6">
+      <section className="mx-auto max-w-5xl px-4 py-14 pb-20 sm:px-6">
         <SectionHeader
           title="Top builders"
           subtitle="The people shipping these projects."

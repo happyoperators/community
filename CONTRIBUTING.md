@@ -1,7 +1,7 @@
 # Contributing
 
-This directory is community-curated. Adding a project or builder is one JSON file
-and a pull request — no sign-up, no backend.
+This directory is community-curated. Adding a project, app, or builder is one JSON
+file and a pull request — no sign-up, no backend.
 
 ## Add a project
 
@@ -22,6 +22,29 @@ Create `data/projects/<slug>.json`. The `<slug>` becomes the URL
 ```
 
 Do **not** add star counts — they're fetched automatically from GitHub at build time.
+
+## Add an app
+
+Apps are things you've shipped — web, mobile, desktop, CLI. Unlike projects, an
+app **doesn't have to be open source**; it just needs a link and its platforms.
+Create `data/apps/<slug>.json`:
+
+```jsonc
+{
+  "name": "Your App",                     // required
+  "description": "One clear sentence.",    // required
+  "url": "https://yourapp.com",            // required — link to the app
+  "platforms": ["web", "ios"],             // required — see list below
+  "category": "Productivity",              // optional
+  "tags": ["ai", "notes"],                 // optional
+  "builders": ["your-builder-slug"],       // optional, refs data/builders/*.json
+  "price": "Freemium",                     // optional, e.g. Free / Freemium / $9/mo
+  "repo": "owner/repository"               // optional — only if it's open source
+}
+```
+
+Valid `platforms`: `web`, `ios`, `android`, `macos`, `windows`, `linux`, `cli`,
+`browser-extension`, `api`.
 
 ## Add a builder
 
