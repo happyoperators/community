@@ -1,0 +1,8 @@
+{
+  "name": "HappyCEO Plugin",
+  "description": "Co-CEO plugin for Claude Code — 19 skills for agency founders (daily ops, meetings, CRM, content, proposals, email).",
+  "repo": "mattdotroberts/happyceo-plugin",
+  "category": "Developer Tools",
+  "tags": ["claude-code", "plugin", "skills", "agency"],
+  "builders": ["matt-roberts"]
+}

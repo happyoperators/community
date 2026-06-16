@@ -1,0 +1,8 @@
+{
+  "name": "Claude Event Dashboard",
+  "description": "Real-time living wall event app for Claude community events. Built with React, Convex, and Vite.",
+  "repo": "mattdotroberts/claude-event-dashboard",
+  "category": "Community",
+  "tags": ["react", "convex", "vite", "events"],
+  "builders": ["matt-roberts"]
+}

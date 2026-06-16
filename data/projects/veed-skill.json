@@ -1,0 +1,8 @@
+{
+  "name": "VEED Skill",
+  "description": "Claude Code skill for generating talking head videos using VEED Fabric 1.0 via fal.ai.",
+  "repo": "mattdotroberts/veed-skill",
+  "category": "Developer Tools",
+  "tags": ["claude-code", "skill", "video", "ai"],
+  "builders": ["matt-roberts"]
+}
