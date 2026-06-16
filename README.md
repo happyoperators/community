@@ -1,12 +1,12 @@
 # HO Community
 
-An open, **community-curated directory of projects and the builders behind them**.
-Everything is public, there's no backend, and anyone can add an entry by opening a
-pull request with a small JSON file. Projects are ranked by GitHub signals.
+**Built by the community, for the community** — a directory of the projects, apps,
+and people building with AI. Not just open source. Everything is public, there's no
+backend, and anyone can add an entry by opening a pull request with a small JSON file.
 
-- **Projects** — `/projects` — open source, ranked by stars + recent activity
+- **Projects** — `/projects` — open source, ranked by GitHub stars + recent activity
 - **Apps** — `/apps` — things builders ship (web/mobile/desktop), open source or not
-- **Builders** — `/builders` — the people shipping them
+- **Builders** — `/builders` — the people behind them
 
 ## How it works
 

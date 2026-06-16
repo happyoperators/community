@@ -29,14 +29,15 @@ export default function Home() {
               <span className="absolute inline-flex size-full animate-ping rounded-full bg-brand opacity-75" />
               <span className="relative inline-flex size-1.5 rounded-full bg-brand" />
             </span>
-            Community-curated · open source
+            Built by the community, for the community
           </div>
           <h1 className="mx-auto max-w-3xl text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
-            The best projects, and the builders behind them.
+            The projects, apps, and people building with AI.
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-balance text-muted-foreground sm:text-lg">
-            {site.tagline} Ranked by GitHub signals. No gatekeepers — anyone can
-            add an entry with a pull request.
+            A community-curated directory of what we&apos;re building — not just
+            open source. No gatekeepers; anyone can add an entry with a pull
+            request.
           </p>
           <div className="mt-8 flex items-center justify-center gap-3">
             <Link href="/projects" className={buttonVariants({ size: "lg" })}>
