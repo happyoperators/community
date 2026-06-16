@@ -49,10 +49,12 @@ export default function Home() {
 
           <div className="mt-12 flex items-center justify-center gap-8 text-sm text-muted-foreground">
             <span className="inline-flex items-center gap-2">
-              <Star className="size-4" /> {projects.length} projects
+              <Star className="size-4" /> {projects.length}{" "}
+              {projects.length === 1 ? "project" : "projects"}
             </span>
             <span className="inline-flex items-center gap-2">
-              <Users className="size-4" /> {builders.length} builders
+              <Users className="size-4" /> {builders.length}{" "}
+              {builders.length === 1 ? "builder" : "builders"}
             </span>
             <span className="inline-flex items-center gap-2">
               <GitPullRequest className="size-4" /> PR to contribute

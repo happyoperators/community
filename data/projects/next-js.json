@@ -1,9 +1,0 @@
-{
-  "name": "Next.js",
-  "description": "The React framework for the web. Used by some of the world's largest companies to build full-stack apps.",
-  "repo": "vercel/next.js",
-  "website": "https://nextjs.org",
-  "category": "Web Framework",
-  "tags": ["react", "framework", "ssr", "fullstack"],
-  "builders": []
-}

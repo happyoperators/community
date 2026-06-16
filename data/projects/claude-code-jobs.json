@@ -1,0 +1,9 @@
+{
+  "name": "Claude Code Jobs",
+  "description": "Happy Operators Community's own read on the Claude Code job market — the roles worth acting on, surfaced by the people the market is actually chasing.",
+  "repo": "simonconway1979/claude-code-jobs",
+  "category": "Jobs",
+  "tags": ["claude-code", "jobs", "careers", "ai"],
+  "builders": ["simon-conway"],
+  "featured": true
+}

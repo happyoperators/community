@@ -1,9 +1,0 @@
-{
-  "name": "Ollama",
-  "description": "Get up and running with large language models locally. Run Llama, Mistral, and other models on your own machine.",
-  "repo": "ollama/ollama",
-  "website": "https://ollama.com",
-  "category": "AI",
-  "tags": ["llm", "ai", "local", "inference"],
-  "builders": []
-}

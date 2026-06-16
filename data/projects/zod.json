@@ -1,9 +1,0 @@
-{
-  "name": "Zod",
-  "description": "TypeScript-first schema validation with static type inference. Define once, validate and infer types everywhere.",
-  "repo": "colinhacks/zod",
-  "website": "https://zod.dev",
-  "category": "Developer Tools",
-  "tags": ["typescript", "validation", "schema"],
-  "builders": ["colinhacks"]
-}
