@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-16T20:00:42.702Z",
+  "generatedAt": "2026-06-16T20:04:08.285Z",
   "repos": {
     "simonconway1979/claude-code-jobs": {
       "stars": 0,
@@ -15,25 +15,11 @@
       "language": "TypeScript",
       "openIssues": 0
     },
-    "mattdotroberts/happyceo-plugin": {
-      "stars": 2,
-      "forks": 0,
-      "pushedAt": "2026-02-25T10:01:35Z",
-      "language": "Python",
-      "openIssues": 0
-    },
     "simonconway1979/os-intelligence": {
       "stars": 3,
       "forks": 0,
       "pushedAt": "2026-06-10T10:50:05Z",
       "language": "Shell",
-      "openIssues": 0
-    },
-    "mattdotroberts/veed-skill": {
-      "stars": 1,
-      "forks": 0,
-      "pushedAt": "2026-03-16T13:44:44Z",
-      "language": null,
       "openIssues": 0
     }
   },
