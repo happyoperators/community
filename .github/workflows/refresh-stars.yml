@@ -1,0 +1,39 @@
+# Refreshes data/generated/stats.json daily so star counts stay current without
+# a manual redeploy. Commits the change back, which triggers Netlify to rebuild.
+name: Refresh GitHub stats
+
+on:
+  schedule:
+    - cron: "0 6 * * *" # every day at 06:00 UTC
+  workflow_dispatch: {} # allow manual runs
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Fetch GitHub stats
+        env:
+          # GITHUB_TOKEN is provided automatically; raises the API rate limit.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/fetch-stars.mjs
+
+      - name: Commit updated stats
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet data/generated/stats.json; then
+            git add data/generated/stats.json
+            git commit -m "chore: refresh GitHub stats"
+            git push
+          else
+            echo "No stat changes."
+          fi

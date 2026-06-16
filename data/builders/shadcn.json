@@ -1,0 +1,9 @@
+{
+  "name": "shadcn",
+  "tagline": "Building open-source tools for the web.",
+  "bio": "Creator of shadcn/ui. Working on design systems and developer experience.",
+  "github": "shadcn",
+  "x": "shadcn",
+  "website": "https://shadcn.com",
+  "tags": ["design-systems", "react", "open-source"]
+}

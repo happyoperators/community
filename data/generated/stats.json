@@ -1,0 +1,61 @@
+{
+  "generatedAt": "2026-06-16T19:02:55.053Z",
+  "repos": {
+    "honojs/hono": {
+      "stars": 30995,
+      "forks": 1128,
+      "pushedAt": "2026-06-09T03:57:23Z",
+      "language": "TypeScript",
+      "openIssues": 373
+    },
+    "vercel/next.js": {
+      "stars": 140067,
+      "forks": 31228,
+      "pushedAt": "2026-06-16T18:59:38Z",
+      "language": "JavaScript",
+      "openIssues": 4086
+    },
+    "ollama/ollama": {
+      "stars": 174317,
+      "forks": 16649,
+      "pushedAt": "2026-06-16T18:04:56Z",
+      "language": "Go",
+      "openIssues": 3444
+    },
+    "shadcn-ui/ui": {
+      "stars": 116749,
+      "forks": 9072,
+      "pushedAt": "2026-06-16T09:16:53Z",
+      "language": "TypeScript",
+      "openIssues": 2044
+    },
+    "supabase/supabase": {
+      "stars": 104345,
+      "forks": 12748,
+      "pushedAt": "2026-06-16T19:00:21Z",
+      "language": "TypeScript",
+      "openIssues": 1066
+    },
+    "colinhacks/zod": {
+      "stars": 42984,
+      "forks": 2022,
+      "pushedAt": "2026-06-13T00:19:54Z",
+      "language": "TypeScript",
+      "openIssues": 201
+    }
+  },
+  "users": {
+    "colinhacks": {
+      "followers": 3758,
+      "avatarUrl": "https://avatars.githubusercontent.com/u/3084745?v=4"
+    },
+    "leerob": {
+      "followers": 15914,
+      "avatarUrl": "https://avatars.githubusercontent.com/u/9113740?v=4"
+    },
+    "shadcn": {
+      "followers": 15883,
+      "avatarUrl": "https://avatars.githubusercontent.com/u/124599?v=4"
+    }
+  }
+}

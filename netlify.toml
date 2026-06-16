@@ -1,0 +1,16 @@
+# Netlify deploy config for the static export.
+# `npm run build` runs `prebuild` (fetch-stars) then `next build`, which emits
+# the static site to `out/`. Set GITHUB_TOKEN in Netlify env vars to raise the
+# GitHub API rate limit. Use a scheduled build/deploy to refresh star counts.
+
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

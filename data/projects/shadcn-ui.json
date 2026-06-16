@@ -1,0 +1,10 @@
+{
+  "name": "shadcn/ui",
+  "description": "Beautifully designed components you can copy and paste into your apps. Accessible, customizable, open source.",
+  "repo": "shadcn-ui/ui",
+  "website": "https://ui.shadcn.com",
+  "category": "Developer Tools",
+  "tags": ["react", "components", "tailwind", "ui"],
+  "builders": ["shadcn"],
+  "featured": true
+}

@@ -1,0 +1,9 @@
+{
+  "name": "Supabase",
+  "description": "The open source Firebase alternative. Postgres database, auth, storage, and edge functions.",
+  "repo": "supabase/supabase",
+  "website": "https://supabase.com",
+  "category": "Backend",
+  "tags": ["postgres", "database", "auth", "backend"],
+  "builders": []
+}

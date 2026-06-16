@@ -1,0 +1,9 @@
+{
+  "name": "Hono",
+  "description": "Fast, lightweight web framework built on Web Standards. Runs on any JavaScript runtime — Cloudflare, Deno, Bun, Node.",
+  "repo": "honojs/hono",
+  "website": "https://hono.dev",
+  "category": "Web Framework",
+  "tags": ["typescript", "edge", "framework", "api"],
+  "builders": []
+}
