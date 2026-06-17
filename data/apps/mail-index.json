@@ -1,0 +1,11 @@
+{
+  "name": "mail-index",
+  "description": "Local-first, read-only MCP server and CLI that indexes your Gmail so AI agents can recall it — search, contacts, threads, digests — at a fraction of a Gmail-API MCP's tokens.",
+  "url": "https://github.com/alunsoldantarctica/mail-index",
+  "platforms": ["cli", "macos", "linux", "windows"],
+  "category": "Developer Tools",
+  "tags": ["mcp", "gmail", "ai-agents", "local-first", "cli"],
+  "builders": ["al-ste-marie"],
+  "price": "Free",
+  "repo": "alunsoldantarctica/mail-index"
+}
