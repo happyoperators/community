@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-06-16T20:04:08.285Z",
+  "generatedAt": "2026-06-17T10:54:48.124Z",
   "repos": {
     "simonconway1979/claude-code-jobs": {
       "stars": 0,
-      "forks": 0,
+      "forks": 1,
       "pushedAt": "2026-06-14T23:58:24Z",
       "language": "Shell",
-      "openIssues": 1
+      "openIssues": 2
     },
     "mattdotroberts/claude-event-dashboard": {
       "stars": 3,
