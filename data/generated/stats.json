@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-08T08:26:27.006Z",
+  "generatedAt": "2026-07-09T09:37:36.730Z",
   "repos": {
     "simonconway1979/claude-code-jobs": {
       "stars": 0,
@@ -25,16 +25,12 @@
     "alunsoldantarctica/mail-index": {
       "stars": 2,
       "forks": 1,
-      "pushedAt": "2026-07-01T12:56:48Z",
+      "pushedAt": "2026-07-08T21:09:47Z",
       "language": "TypeScript",
       "openIssues": 0
     }
   },
   "users": {
-    "alunsoldantarctica": {
-      "followers": 0,
-      "avatarUrl": "https://avatars.githubusercontent.com/u/197430161?v=4"
-    },
     "mattdotroberts": {
       "followers": 2,
       "avatarUrl": "https://avatars.githubusercontent.com/u/6546988?v=4"
