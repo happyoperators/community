@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-17T08:08:33.256Z",
+  "generatedAt": "2026-07-18T07:47:51.248Z",
   "repos": {
     "simonconway1979/claude-code-jobs": {
       "stars": 0,
@@ -27,7 +27,7 @@
       "forks": 1,
       "pushedAt": "2026-07-10T10:04:13Z",
       "language": "TypeScript",
-      "openIssues": 1
+      "openIssues": 14
     }
   },
   "users": {
