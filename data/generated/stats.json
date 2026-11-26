@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-25T16:50:35.209Z",
+  "generatedAt": "2026-11-26T16:26:51.934Z",
   "repos": {
     "simonconway1979/claude-code-jobs": {
       "stars": 0,
@@ -25,9 +25,9 @@
     "alunsoldantarctica/mail-index": {
       "stars": 5,
       "forks": 1,
-      "pushedAt": "2026-11-24T10:31:48Z",
+      "pushedAt": "2026-11-26T12:42:36Z",
       "language": "TypeScript",
-      "openIssues": 17
+      "openIssues": 18
     }
   },
   "users": {
